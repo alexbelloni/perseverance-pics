@@ -84,7 +84,7 @@ Relevant part of the response (for our purpose):
 }
 
 ```
-## Coding
+## Coding the first test using Node
 
 First of all, we will create a Node file named node-request.js.   
 Install node-fetch to request the API response:  
@@ -115,17 +115,13 @@ Promise.all([imageApiPromise]).then(
 
 Here is the [complete file](./node-request.js).
 
-## Implementing a HTML example
+## Coding a website using JavaScript 
 
 The version of the JavaScript file for web (using Web APIs) is very similar and it is in the webapis-request.js, [here](./webapis-request.js).  
 This file can be used in a simple HTML file like the index.html.  
   
 Finally, the [demo](https://alexbelloni.github.io/Perseverance-Pics/). 
 🚀
-
-## Contributing
-
-If you are interesting to contribute, send pull requests please.
 
 ## References
 
