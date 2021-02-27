@@ -9,7 +9,7 @@ Perseverance Pics presents images of Mars by the rover.
 ## Which APIs and languages will we use? 🤔
 
 In my [other project](https://nasadatanauts.github.io/alexbelloni/pages/asteroidnn4.html), I presented the "Asteroids - NeoWs", a RESTful web service by NASA. That one gives us details about near earth Asteroid information. In that case, I used it to check information about an asteroid that could be as big as the CN Tower, a Canadian iconic building, and hurtle past near Earth.  
-However, "Perseverance Pics" will get images from NASA using the NASA Image and Video Library and the NASA RSS Feed of Raw Images.  
+However, "Perseverance Pics" will get images from NASA using the **NASA Image and Video Library** and the **NASA RSS Feed of Raw Images**.  
 It will show information using JavaScript as language. 
 
 ## 1. NASA Image and Video Library
