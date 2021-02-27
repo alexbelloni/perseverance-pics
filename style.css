@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    margin: 10px;
+}
+
+header{
+    background-color: gainsboro;
+}
+
+#images {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 1px solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+.card img {
+    width: 100%;
+    height: 75%;
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: gainsboro;
+}
+
+@media screen and (min-width: 600px) {
+    #images {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .card {
+        width: 300px;
+        height: auto;
+    }
+}

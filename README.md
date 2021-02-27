@@ -2,7 +2,9 @@
 
 The space subject these days is "Perseverance Landing". This amazing rover, which landed on Mars on February 2021, has sent lots of images from that red planet via its 23 cameras. It's an awesome demonstration of the use of NASA's technologies. In October 2021, Space Apps Challenge will be ready for hackers worldwide. Surely, the rover's journey will be mentioned as a theme of that international hackathon. Therefore, "Perseverance Pics" is one of the possible applications joining space and accessible technologies. In other words, we can use NASA APIs and computer languages to create our projects.    
 
-[Demo](./index.html)
+Perseverance Pics presents images of Mars by the rover.
+
+[Demo](https://alexbelloni.github.io/Perseverance-Pics/)
 
 ## Which APIs and languages will we use? 🤔
 
@@ -10,7 +12,7 @@ In my [other project](https://nasadatanauts.github.io/alexbelloni/pages/asteroid
 However, "Perseverance Pics" will get images from NASA using the NASA Image and Video Library and the NASA RSS Feed of Raw Images.  
 It will show information using JavaScript as language. 
 
-## NASA Image and Video Library
+## 1. NASA Image and Video Library
 
 URL base: images-api.nasa.gov  
 Pathname: search  
@@ -49,7 +51,7 @@ Relevant part of the response (for our purpose):
 
 ```
 
-## NASA RSS Feed of Raw Images
+## 2. NASA RSS Feed of Raw Images
 
 URL base: mars.nasa.gov   
 Pathname: /rss/api  
@@ -65,7 +67,7 @@ Parameters:
 
 For instance:
 
-https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=10&order=sol+desc&&search=|FRONT_HAZCAM_RIGHT_A|FRONT_HAZCAM_RIGHT_B|FRONT_HAZCAM_LEFT_A|FRONT_HAZCAM_LEFT_B|REAR_HAZCAM_LEFT|REAR_HAZCAM_RIGHT&&extended=sample_type::full, sample_type::thumbnail, product_type::raw, product_type::color
+https://mars.nasa.gov/rss/api/?feed=raw_images&category=mars2020&feedtype=json&num=10&order=sol+desc&&search=|FRONT_HAZCAM_RIGHT_A|FRONT_HAZCAM_RIGHT_B&&extended=sample_type::full
 
 Relevant part of the response (for our purpose):
 
@@ -118,7 +120,8 @@ Here is the [complete file](./node-request.js).
 The version of the JavaScript file for web (using Web APIs) is very similar and it is in the webapis-request.js, [here](./webapis-request.js).  
 This file can be used in a simple HTML file like the index.html.  
   
-Finally, the [demo](./index.html).
+Finally, the [demo](https://alexbelloni.github.io/Perseverance-Pics/). 
+🚀
 
 ## Contributing
 
