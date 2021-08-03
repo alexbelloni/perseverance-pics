@@ -4,7 +4,7 @@ The space subject these days is "Perseverance Landing". This amazing rover, whic
 
 Perseverance Pics presents images of Mars by the rover.
 
-[Demo](https://alexbelloni.github.io/Perseverance-Pics/)
+[Demo](https://alexbelloni.github.io/perseverance-pics/)
 
 ## Which APIs and languages will we use? 🤔
 
@@ -120,7 +120,7 @@ Here is the [complete file](./node-request.js).
 The version of the JavaScript file for web (using Web APIs) is very similar and it is in the webapis-request.js, [here](./webapis-request.js).  
 This file can be used in a simple HTML file like the index.html.  
   
-Finally, the [demo](https://alexbelloni.github.io/Perseverance-Pics/). 
+Finally, the [demo](https://alexbelloni.github.io/perseverance-pics/). 
 🚀
 
 ## References
