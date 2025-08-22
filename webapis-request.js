@@ -17,40 +17,42 @@ const marsUrlPromise = fetch(marsUrl);
 Promise.all([imagesUrlPromise, marsUrlPromise]).then(
     //fetchResponses is an array of no-json body objects. Body.json() returns a Promise too. 
     //Therefore, we need to wait the response of each json function via Promise.all again 
-    fetchResponses => Promise.all(fetchResponses.map(body => body.json()))).then(
-        // Finally, we have an array of JSON objects
-        bodyJsonArray => {
-            const finalArray = [];
-            bodyJsonArray.forEach(bodyJson => {
-                if (bodyJson.collection) {
-                    const hostname = new URL(bodyJson.collection.href).hostname;
-                    bodyJson.collection.items.forEach(item => {
-                        const { title, date_created } = item.data[0];
-                        finalArray.push({ hostname, title, date: new Date(date_created), url: item.links[0].href });
-                    })
-                } else {
-                    bodyJson.images.forEach(item => {
-                        const hostname = new URL(item.json_link).hostname;
-                        const { title, date_received, image_files } = item;
-                        finalArray.push({ hostname, title, date: new Date(date_received), url: image_files.small });
-                    })
-                }
-            });
+    fetchResponses => Promise.all(
+        fetchResponses.filter(fr => fr.status === 200) //just valid responses
+            .map(body => body.json()))).then(
+                // Finally, we have an array of JSON objects
+                bodyJsonArray => {
+                    const finalArray = [];
+                    bodyJsonArray.forEach(bodyJson => {
+                        if (bodyJson.collection) {
+                            const hostname = new URL(bodyJson.collection.href).hostname;
+                            bodyJson.collection.items.forEach(item => {
+                                const { title, date_created } = item.data[0];
+                                finalArray.push({ hostname, title, date: new Date(date_created), url: item.links[0].href });
+                            })
+                        } else {
+                            bodyJson.images.forEach(item => {
+                                const hostname = new URL(item.json_link).hostname;
+                                const { title, date_received, image_files } = item;
+                                finalArray.push({ hostname, title, date: new Date(date_received), url: image_files.small });
+                            })
+                        }
+                    });
 
-            document.querySelector('#images').innerHTML = finalArray.sort((a,b)=>b.date - a.date).map(img=>(
-                `<article class="card">
+                    document.querySelector('#images').innerHTML = finalArray.sort((a, b) => b.date - a.date).map(img => (
+                        `<article class="card">
                     <img src="${img.url}"/>
                     <span class="title">${img.title}</span>
                     <div class="details">
                         <span class="info">${img.hostname}</span>
-                        <span class="info">${img.date.getFullYear()}-${padStart(img.date.getMonth()+1)}-${padStart(img.date.getDate())}</span>
+                        <span class="info">${img.date.getFullYear()}-${padStart(img.date.getMonth() + 1)}-${padStart(img.date.getDate())}</span>
                     </div>
                 </article>`
-            )).join('');
+                    )).join('');
 
-            function padStart(number){
-                return number.toString().padStart(2,'0');
-            }
-        }
-    );
+                    function padStart(number) {
+                        return number.toString().padStart(2, '0');
+                    }
+                }
+            );
 
